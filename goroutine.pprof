@@ -1,0 +1,80 @@
+goroutine profile: total 22
+10 @ 0x47a3ae 0x457ef7 0xf830bb 0x482161
+#	0xf830ba	github.com/go-sql-driver/mysql.(*mysqlConn).startWatcher.func1+0x9a	/home/happy/goWorkSpace/pkg/mod/github.com/go-sql-driver/mysql@v1.9.3/connection.go:658
+
+3 @ 0x47a3ae 0x43e217 0x4795c5 0x4f4ca7 0x4f5f9a 0x4f5f88 0x5a09e5 0x5ae345 0x6c2f39 0x659343 0x659473 0x6c8d25 0x482161
+#	0x4795c4	internal/poll.runtime_pollWait+0x84		/usr/local/go/src/runtime/netpoll.go:351
+#	0x4f4ca6	internal/poll.(*pollDesc).wait+0x26		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x4f5f99	internal/poll.(*pollDesc).waitRead+0x279	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+#	0x4f5f87	internal/poll.(*FD).Read+0x267			/usr/local/go/src/internal/poll/fd_unix.go:165
+#	0x5a09e4	net.(*netFD).Read+0x24				/usr/local/go/src/net/fd_posix.go:55
+#	0x5ae344	net.(*conn).Read+0x44				/usr/local/go/src/net/net.go:194
+#	0x6c2f38	net/http.(*connReader).Read+0x158		/usr/local/go/src/net/http/server.go:798
+#	0x659342	bufio.(*Reader).fill+0x102			/usr/local/go/src/bufio/bufio.go:113
+#	0x659472	bufio.(*Reader).Peek+0x52			/usr/local/go/src/bufio/bufio.go:152
+#	0x6c8d24	net/http.(*conn).serve+0x784			/usr/local/go/src/net/http/server.go:2137
+
+3 @ 0x47a3ae 0x43e217 0x4795c5 0x4f4ca7 0x4f5f9a 0x4f5f88 0x5a09e5 0x5ae345 0x6c2f39 0x659343 0x659e49 0x65a0a5 0x65d8c5 0x6d6c10 0x6d6c2b 0x6c3c47 0x6c8938 0x482161
+#	0x4795c4	internal/poll.runtime_pollWait+0x84		/usr/local/go/src/runtime/netpoll.go:351
+#	0x4f4ca6	internal/poll.(*pollDesc).wait+0x26		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x4f5f99	internal/poll.(*pollDesc).waitRead+0x279	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+#	0x4f5f87	internal/poll.(*FD).Read+0x267			/usr/local/go/src/internal/poll/fd_unix.go:165
+#	0x5a09e4	net.(*netFD).Read+0x24				/usr/local/go/src/net/fd_posix.go:55
+#	0x5ae344	net.(*conn).Read+0x44				/usr/local/go/src/net/net.go:194
+#	0x6c2f38	net/http.(*connReader).Read+0x158		/usr/local/go/src/net/http/server.go:798
+#	0x659342	bufio.(*Reader).fill+0x102			/usr/local/go/src/bufio/bufio.go:113
+#	0x659e48	bufio.(*Reader).ReadSlice+0x28			/usr/local/go/src/bufio/bufio.go:380
+#	0x65a0a4	bufio.(*Reader).ReadLine+0x24			/usr/local/go/src/bufio/bufio.go:409
+#	0x65d8c4	net/textproto.(*Reader).readLineSlice+0xa4	/usr/local/go/src/net/textproto/reader.go:64
+#	0x6d6c0f	net/textproto.(*Reader).ReadLine+0xaf		/usr/local/go/src/net/textproto/reader.go:44
+#	0x6d6c2a	net/http.readRequest+0xca			/usr/local/go/src/net/http/request.go:1087
+#	0x6c3c46	net/http.(*conn).readRequest+0x226		/usr/local/go/src/net/http/server.go:1048
+#	0x6c8937	net/http.(*conn).serve+0x397			/usr/local/go/src/net/http/server.go:2027
+
+1 @ 0x43ad11 0x47921d 0x719731 0x719565 0x71638b 0x72fbcf 0x73067e 0x6ca6c9 0x6cc5c4 0x6d7f2e 0x6c8bc5 0x482161
+#	0x719730	runtime/pprof.writeRuntimeProfile+0xb0	/usr/local/go/src/runtime/pprof/pprof.go:796
+#	0x719564	runtime/pprof.writeGoroutine+0x44	/usr/local/go/src/runtime/pprof/pprof.go:755
+#	0x71638a	runtime/pprof.(*Profile).WriteTo+0x14a	/usr/local/go/src/runtime/pprof/pprof.go:377
+#	0x72fbce	net/http/pprof.handler.ServeHTTP+0x52e	/usr/local/go/src/net/http/pprof/pprof.go:272
+#	0x73067d	net/http/pprof.Index+0xdd		/usr/local/go/src/net/http/pprof/pprof.go:389
+#	0x6ca6c8	net/http.HandlerFunc.ServeHTTP+0x28	/usr/local/go/src/net/http/server.go:2294
+#	0x6cc5c3	net/http.(*ServeMux).ServeHTTP+0x1c3	/usr/local/go/src/net/http/server.go:2822
+#	0x6d7f2d	net/http.serverHandler.ServeHTTP+0x8d	/usr/local/go/src/net/http/server.go:3301
+#	0x6c8bc4	net/http.(*conn).serve+0x624		/usr/local/go/src/net/http/server.go:2102
+
+1 @ 0x47a3ae 0x43e217 0x4795c5 0x4f4ca7 0x4fa075 0x4fa063 0x5a2989 0x5b757b 0x5b6770 0x6ce0ac 0x6cdcb1 0xc6da31 0xc6d963 0xfe2b08 0x4457cb 0x482161
+#	0x4795c4	internal/poll.runtime_pollWait+0x84		/usr/local/go/src/runtime/netpoll.go:351
+#	0x4f4ca6	internal/poll.(*pollDesc).wait+0x26		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x4fa074	internal/poll.(*pollDesc).waitRead+0x294	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+#	0x4fa062	internal/poll.(*FD).Accept+0x282		/usr/local/go/src/internal/poll/fd_unix.go:620
+#	0x5a2988	net.(*netFD).accept+0x28			/usr/local/go/src/net/fd_unix.go:172
+#	0x5b757a	net.(*TCPListener).accept+0x1a			/usr/local/go/src/net/tcpsock_posix.go:159
+#	0x5b676f	net.(*TCPListener).Accept+0x2f			/usr/local/go/src/net/tcpsock.go:380
+#	0x6ce0ab	net/http.(*Server).Serve+0x30b			/usr/local/go/src/net/http/server.go:3424
+#	0x6cdcb0	net/http.(*Server).ListenAndServe+0x70		/usr/local/go/src/net/http/server.go:3350
+#	0xc6da30	net/http.ListenAndServe+0x210			/usr/local/go/src/net/http/server.go:3665
+#	0xc6d962	github.com/gin-gonic/gin.(*Engine).Run+0x142	/home/happy/goWorkSpace/pkg/mod/github.com/gin-gonic/gin@v1.10.1/gin.go:402
+#	0xfe2b07	main.main+0x3c7					/home/happy/StudentService/cmd/student/main.go:115
+#	0x4457ca	runtime.main+0x28a				/usr/local/go/src/runtime/proc.go:283
+
+1 @ 0x47a3ae 0x43e217 0x4795c5 0x4f4ca7 0x4fa075 0x4fa063 0x5a2989 0x5b757b 0x5b6770 0x6ce0ac 0x6cdcb1 0xfe2d0d 0xfe2d0e 0x482161
+#	0x4795c4	internal/poll.runtime_pollWait+0x84		/usr/local/go/src/runtime/netpoll.go:351
+#	0x4f4ca6	internal/poll.(*pollDesc).wait+0x26		/usr/local/go/src/internal/poll/fd_poll_runtime.go:84
+#	0x4fa074	internal/poll.(*pollDesc).waitRead+0x294	/usr/local/go/src/internal/poll/fd_poll_runtime.go:89
+#	0x4fa062	internal/poll.(*FD).Accept+0x282		/usr/local/go/src/internal/poll/fd_unix.go:620
+#	0x5a2988	net.(*netFD).accept+0x28			/usr/local/go/src/net/fd_unix.go:172
+#	0x5b757a	net.(*TCPListener).accept+0x1a			/usr/local/go/src/net/tcpsock_posix.go:159
+#	0x5b676f	net.(*TCPListener).Accept+0x2f			/usr/local/go/src/net/tcpsock.go:380
+#	0x6ce0ab	net/http.(*Server).Serve+0x30b			/usr/local/go/src/net/http/server.go:3424
+#	0x6cdcb0	net/http.(*Server).ListenAndServe+0x70		/usr/local/go/src/net/http/server.go:3350
+#	0xfe2d0c	net/http.ListenAndServe+0xcc			/usr/local/go/src/net/http/server.go:3665
+#	0xfe2d0d	main.main.func2+0xcd				/home/happy/StudentService/cmd/student/main.go:106
+
+1 @ 0x47a3ae 0x457ef7 0xc8399c 0x482161
+#	0xc8399b	database/sql.(*DB).connectionCleaner+0x9b	/usr/local/go/src/database/sql/sql.go:1104
+
+1 @ 0x47a3ae 0x457ef7 0xc844c7 0x482161
+#	0xc844c6	database/sql.(*DB).connectionOpener+0x86	/usr/local/go/src/database/sql/sql.go:1261
+
+1 @ 0x482161
+
