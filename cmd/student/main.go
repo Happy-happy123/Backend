@@ -74,8 +74,6 @@ import (
 func main() {
 	// 加载配置
 	cfg := config.Load()
-	// var cfg config.Config
-	// cfg=config.Load()
 
 	// 初始化MySQL
 	gormDB, err := database.NewMySQLClient(cfg.MySQLDSN)
