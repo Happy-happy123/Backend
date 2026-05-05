@@ -71,8 +71,6 @@ import (
 	"StudentService/internal/router"
 )
 
-//test
-
 func main() {
 	// 加载配置
 	cfg := config.Load()

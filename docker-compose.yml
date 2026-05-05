@@ -1,0 +1,50 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: student_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: student_service
+      MYSQL_USER: gouser
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - student_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: student_redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - student_network
+
+  app:
+    build: .
+    container_name: student_app
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      MYSQL_DSN: gouser:123456@tcp(mysql:3306)/student_service?charset=utf8mb4&parseTime=True&loc=Local
+      REDIS_ADDR: redis:6379
+      REDIS_DB: 0
+    depends_on:
+      - mysql
+      - redis
+    restart: "always"
+    networks:
+      - student_network
+
+volumes:
+  mysql_data:
+  redis_data:
+
+networks:
+  student_network:
+    driver: bridge
